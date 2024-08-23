@@ -66,6 +66,25 @@ Para este caso `login` funciona de manera muy similar: buscando un `User` en el 
 ***Hint:
  En los tests en vez de usar el retorno de las funciones (true or false) use el método isDefined de Option.***
 
+## Pt 4: Admin
+
+Dado el reciente nuevo publico hay demasiados usuarios mal portados.
+
+Para lo cual su querido jefe le asigna su última tarea añadir usuarios Admin.
+
+Que no se olvide: Siempre TDD.
+
+### Indicaciones
+
+Requisitos:
+- Un admin debe de poder establecer el estado de un usuario a “Muted” o “Banned”
+- Un admin debe de poder quitar cualquiera de la restricciones impuestas a un usuario
+- Un admin también tiene username
+- Los administradores no se deberían poder cambiar el estado entre ellos
+  
+***Hint: No sea reacio a cambiar código anterior al añadir cosas nuevas***
+
+
 
 
 
