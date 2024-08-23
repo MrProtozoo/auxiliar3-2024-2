@@ -10,6 +10,8 @@ class User(val username: String, val password: String, var name: String = "") ex
   private val _followers: Set[IUser] = Set()
   private val _following: Set[IUser] = Set()
 
+  override def changeName(newName: String): Unit = name = newName
+
   override def follow(user: IUser): Unit = {
     if (user == this) return
     _following add user
@@ -48,4 +50,13 @@ class User(val username: String, val password: String, var name: String = "") ex
   override def removeRestrictions(): Unit = {
     state = ""
   }
+
+  override def isBanned(): Boolean = {
+    this.state == "Banned"
+  }
+
+  override def isMuted(): Boolean = {
+    this.state == "Muted"
+  }
+  
 }

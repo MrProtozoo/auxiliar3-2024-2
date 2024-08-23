@@ -18,6 +18,7 @@ class AdminTest extends FunSuite {
     val expectedUsername: String = "DuolingoBros"
     assertEquals(a1.name, expectedUsername)
   }
+  
   test("The admin has a password") {
     val expectedPassword: String = "DuolingoBros"
     assertEquals(a1.name, expectedPassword)
@@ -27,16 +28,19 @@ class AdminTest extends FunSuite {
     val expectedName: String = "DuolingoBros"
     assertEquals(a1.name, expectedName)
   }
+  
   test("An admin can ban any user") {
     a1.banUser(u1)
     val expected: String = "Banned"
     assertEquals(u1.state, expected)
   }
+  
   test("An admin can mute any user") {
     a1.muteUser(u2)
     val expected: String = "Muted"
     assertEquals(u2.state, expected)
   }
+  
   test("An admin can unmute or unban an user") {
     a1.muteUser(u1)
     a1.banUser(u2)
@@ -47,4 +51,5 @@ class AdminTest extends FunSuite {
     assertEquals(u1.state, "")
     assertEquals(u2.state, "")
   }
+  
 }

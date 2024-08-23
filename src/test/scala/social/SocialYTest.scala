@@ -2,6 +2,7 @@ package uchile.dcc.cl
 package social
 
 import munit.FunSuite
+import uchile.dcc.cl.user.{Admin, User}
 
 class SocialYTest extends FunSuite {
   val user = "root"
@@ -12,7 +13,7 @@ class SocialYTest extends FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
     social = new SocialY()
     val admin = social.register(user, pass)
-    admin.get.name = name
+    admin.get.changeName(name)
   }
 
   test("An user must be able to login") {
@@ -49,5 +50,16 @@ class SocialYTest extends FunSuite {
     val u = social.register(user, pass)
     assert(u.isEmpty)
   }
-  
+
+  test("An user can't login if it's banned") {
+    val admin = new Admin("alan", "lapeorbuilddeeldendelahistoria")
+    val name = "meportomal"
+    val pass = "baneenme"
+    val user = social.register(name, pass)
+    admin.banUser(user.get)
+
+    val u = social.login(name, pass)
+    assert(u.isEmpty)
+  }
+
 }

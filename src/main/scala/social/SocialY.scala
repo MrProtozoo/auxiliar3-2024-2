@@ -9,7 +9,7 @@ class SocialY extends ISocialY {
 
   override def login(username: String, password: String): Option[IUser] = {
     val u = users.get(username)
-    if (u.isDefined && u.get.auth(password)) return u
+    if (u.isDefined && u.get.auth(password) && !u.get.isBanned()) return u
     None
   }
 
