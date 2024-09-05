@@ -65,4 +65,31 @@ trait IUser {
    * @return the amount of users the user follows
    */
   def following: Int
+
+  /**
+   * Changes user status to "Banned"
+   */
+  def getBanned(): Unit
+
+  /**
+    * Check if the user is banned.
+    * @return true if the user status is "Banned"
+    */
+  def isBanned(): Boolean
+
+  /**
+    * Changes the user status to "Muted"
+    */
+  def getMuted(): Unit
+
+  /**
+    * Check if the user is muted
+    * @return true if the user status is "Muted"
+    */
+  def isMuted(): Boolean
+
+  /**
+    * Removes any status of the user
+    */
+  def removeRestrictions(): Unit
 }
